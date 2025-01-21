@@ -2,16 +2,15 @@ import User from "../model/UserSchema";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import admin from "firebase-admin";
-import fs from "fs";
 import "dotenv/config";
 
-const firebaseCredentialsJSON = Buffer.from(
-  process.env.FIREBASE_APPLICATION_CREDENTIALS!,
-  "base64"
-).toString("utf8");
-const serviceAccount = JSON.parse(firebaseCredentialsJSON);
+// const firebaseCredentialsJSON = Buffer.from(
+//   process.env.FIREBASE_APPLICATION_CREDENTIALS!,
+//   "base64"
+// ).toString("utf8");
+// const serviceAccount = JSON.parse(firebaseCredentialsJSON);
 
-// const serviceAccount = process.env.FIREBASE_APPLICATION_CREDENTIALS;
+const serviceAccount = process.env.FIREBASE_APPLICATION_CREDENTIALS;
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount!),
